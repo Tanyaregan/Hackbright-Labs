@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+<!-- session[melon_id] = quantity
+melon_types[melon_id] = melon info -->
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            {{ session['cart'] }}
+            <th>Melon Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        {% for melon in melon_list %}
+
+        {% endfor %}
+        <tbody>
+        <tr>
+            <td>{{ melon.common_name }}</td>
+            <td>session[melon_id]</td>
+            <td>melon.price</td>
+            <td>melon.price * session[melon_id]</td>
+        </tr>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Total: </h3>
+
+    <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
+
+{% endblock %}
